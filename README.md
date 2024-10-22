@@ -1,7 +1,7 @@
 # CopeStortion
 An experimental audio distortion plugin
 
-- A classic asymmetric sine fold, then hardclipped with an offset<br>
+- A classic sine fold with an displaced hardclip<br>
 - Tweak around the drive and power knobs at lower settings for extra glitchiness<br>
 
 Installation Instructions:<br>
