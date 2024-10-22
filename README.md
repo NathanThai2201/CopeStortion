@@ -6,8 +6,8 @@ An experimental audio distortion plugin
 
 Installation Instructions:<br>
 
--Copy the plugin to the appropriate VST plugins folder<br>
--For macOS, the default folders for VST3 and AU plugins are:<br>
+- Copy the plugin to the appropriate VST plugins folder<br>
+- For macOS, the default folders for VST3 and AU plugins are:<br>
 
 /Library/Audio/Plug-Ins/VST3<br>
 /Library/Audio/Plug-Ins/Components<br>
