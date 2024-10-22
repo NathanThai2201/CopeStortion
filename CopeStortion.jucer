@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="rMeI09" name="CopeStortion" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Coperime">
   <MAINGROUP id="gCHaXp" name="CopeStortion">
     <GROUP id="{251FCACA-EE2F-4D15-D7CE-1389182C7A47}" name="Source">
       <FILE id="jon2QY" name="BG.png" compile="0" resource="1" file="Source/BG.png"/>

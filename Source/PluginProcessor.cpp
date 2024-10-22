@@ -198,9 +198,11 @@ void CopeStortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
             // Generate Sin(x)
             float sineValue = sineAmplitude * std::sin(2.0f * M_PI * frequency * phaseAccumulator / sampleRate + phase);
 
-            // Add the sine wave to the current audio sample
-            *channelData += (*channelData-1) * 0.3 * sineValue;
-
+            // Add the sine wave to the current audio sample (not at 0 to counteract buzzing)
+            if (volume!=0)
+            {
+                *channelData += (*channelData-1) * 0.3 * sineValue;
+            }
             // Sin(x) update phase accumulator
             phaseAccumulator += 1.0f;
             if (phaseAccumulator >= sampleRate)
@@ -264,7 +266,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout CopeStortionAudioProcessor::
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("driveAmount",1),"driveAmount",juce::NormalisableRange<float>(0.0f, 10.0f, 0.1f, 1.0f), 1.0f));
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("rangeAmount",1),"rangeAmount",juce::NormalisableRange<float>(0.0f, 10.0f, 0.1f, 1.0f), 1.0f));
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("drywetAmount",1),"drywetAmount",juce::NormalisableRange<float>(0.0f, 10.0f, 0.1f, 1.0f), 1.0f));
-    layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("volumeAmount",1),"volumeAmount",juce::NormalisableRange<float>(0.0f, 2.0f, 0.01f, 1.0f), 0.5f));
+    layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("volumeAmount",1),"volumeAmount",juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f, 1.0f), 0.5f));
     
     
     return layout;

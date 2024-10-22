@@ -12,7 +12,7 @@
 			<key>manufacturer</key>
 			<string>Manu</string>
 			<key>name</key>
-			<string>yourcompany: CopeStortion</string>
+			<string>Coperime: CopeStortion</string>
 			<key>resourceUsage</key>
 			<dict>
 				<key>network.client</key>
@@ -35,7 +35,7 @@
 	<key>CFBundleExecutable</key>
 	<string>CopeStortion</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.CopeStortion</string>
+	<string>com.Coperime.CopeStortion</string>
 	<key>CFBundleName</key>
 	<string>CopeStortion</string>
 	<key>CFBundlePackageType</key>
