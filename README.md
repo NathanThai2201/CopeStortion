@@ -2,7 +2,7 @@
 An experimental audio distortion plugin
 
 - A modified soft clip, sine fold with a displaced hardclip at higher volumes<br>
-- Tweak around the volume knob with the drive and power knobs at lower settings for extra clippy glitchiness<br>
+- Tweak around the volume knob with the drive and power knobs at lower settings for glitchiness<br>
 
 Installation Instructions:<br>
 
