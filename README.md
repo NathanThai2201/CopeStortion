@@ -2,7 +2,7 @@
 An experimental audio distortion plugin
 
 - A modified soft clip and sine fold distortion algorithm<br>
-- Bassy, vowely and bubbly distortion sound for low frequencies<br>
+- Dark, vowely and bubbly distortion sound for low frequencies<br>
 - Metallic, harsh and piercing distortion sound for high frequencies<br>
 
 Installation Instructions:<br>
