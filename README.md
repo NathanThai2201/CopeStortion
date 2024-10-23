@@ -2,7 +2,8 @@
 An experimental audio distortion plugin
 
 - A modified soft clip and sine fold distortion algorithm<br>
-- Tweak around the drive and power knobs at lower settings for glitchiness<br>
+- Warm and bubbly distortion sound for low frequency basses<br>
+- Harsh and piercing distortion sound for high frequency basses<br>
 
 Installation Instructions:<br>
 
