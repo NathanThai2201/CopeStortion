@@ -158,7 +158,7 @@ void CopeStortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     float drywet = chainSettings.drywet;
     float volume = chainSettings.volume;
     
-    // Sin(x) parameters
+    // sin(x) parameters
     float frequency = 440.0f;
     float sineAmplitude = 0.1f;
     float phase = 0.0f;
@@ -190,31 +190,43 @@ void CopeStortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 
             
             // Copestortion algorithm:
-            // (2/pi) * arctan(a) + cos(a)/2 + (a-1) * 0.3 * sin(10x)
-            // + 0.2 * previous a
-            // hardclip at 1.5
-            *channelData = ((((2.f/M_PI) * atan(*channelData)+cos(*channelData)/2) * drywet) + (cleanSig * (1.f-drywet)))*volume;
+            // A. (2/pi) * arctan(a) + cos(a)/2     +     (a-1) * 0.3 * sin(10x)
+            // B. Sine fold 2
+            // C. + 0.2 * previous a
+            // D. hardclip at 1.5
             
-            // Generate Sin(x)
-            float sineValue = sineAmplitude * std::sin(2.0f * M_PI * frequency * phaseAccumulator / sampleRate + phase);
+            //A.
+            *channelData = ((2.f/M_PI) * atan(*channelData)+cos(*channelData)/2);
+            
+            // sin(10x)
+            float sineValue = sineAmplitude * std::sin(2.0f * M_PI * 10.0f * frequency * phaseAccumulator / sampleRate + phase);
 
             // Add the sine wave to the current audio sample (not at 0 to counteract buzzing)
             if (volume!=0)
             {
                 *channelData += (*channelData-1) * 0.3 * sineValue;
             }
-            // Sin(x) update phase accumulator
+            // sine wave update phase accumulator
             phaseAccumulator += 1.0f;
             if (phaseAccumulator >= sampleRate)
                 phaseAccumulator -= sampleRate;
             
+            // sine fold 2
+            //B.
+            *channelData = sin(*channelData*2);
+            
+            //C.
             previousSample = *channelData;
             *channelData += 0.2 * previousSample;
             
+            
+            //D.
             if (*channelData>1.5){
                 *channelData=1.5;
             }
-                
+            
+            //drywet control
+            *channelData = ((*channelData * drywet) + (cleanSig * (1.f-drywet)))*volume;
             channelData++;
         }
         // ..do something to the data...
