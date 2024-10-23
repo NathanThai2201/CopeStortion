@@ -2,8 +2,8 @@
 An experimental audio distortion plugin
 
 - A modified soft clip and sine fold distortion algorithm<br>
-- Warm and bubbly distortion sound for low frequency basses<br>
-- Harsh and piercing distortion sound for high frequency basses<br>
+- Dark, vowely and bubbly distortion sound for low frequency basses<br>
+- Metallic, harsh and piercing distortion sound for high frequency basses<br>
 
 Installation Instructions:<br>
 
